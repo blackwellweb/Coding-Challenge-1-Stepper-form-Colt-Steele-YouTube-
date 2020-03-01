@@ -1,5 +1,10 @@
 
+// Select all sections
+const formSections = document.querySelectorAll('.stepperForm__section');
 
+// Current section
+// This will be use to keep that on what section we need to show
+let currentSection = 1;
 
 
 /* Validate Function------------------------------------------------*/
@@ -44,56 +49,88 @@ const validate = (item) => {
 };
 
 
+/* Change Icon-------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+const updateIcon = (item) => {
+
+    // Get Icon Class
+    const targetIcon = item.querySelector('.icon');
+
+    // Add class
+    targetIcon.classList.add('icon-complete');
+
+    // Change Icon
+    targetIcon.innerHTML = '<i class="fas fa-check"></i>';
+
+
+};
 
 
 
-const stepOne = document.querySelector('.stepOne');
-const continueBtn = stepOne.querySelector('.stepperForm__button');
+/* Move To Next Section Function------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+const moveToNextSection = () => {
+
+    let counter = 0;
+    currentSection ++;
+
+    // loop trough all sections
+    formSections.forEach(formSection => {
+    
+        // Remove active class
+        formSection.classList.remove('active');
+
+        // Add inactive class
+        formSection.classList.add('inactive');
+
+        // Add one to counter
+        counter ++;
+
+        // This will give use are new current section
+        if(counter === currentSection){
+            formSection.classList.add('active');
+            formSection.classList.remove('inactive');
+        }
+
+    });
+};
 
 
-// Add Event Listener to submit
-continueBtn.addEventListener('click', ()=>{
-    // Failed
-    if( validate(stepOne) === false){
-        // Failed
-        console.log('it Failed')
+
+/* Continue Buttons Event listeners --------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
 
 
-    }else{
+const continueButtons = document.querySelectorAll('.continue-btn').forEach(button => {
 
-        // Passed
-        console.log('it passed')
+    // Add an event listener to all continue-btn
+    button.addEventListener('click', () => {
+
+        // Get Parent Div
+        const section = button.parentElement.parentElement;
+
+        // If the parentElement has the active class and it not the last section
+        if(section.classList.contains('active')){
 
 
-        // Go on to next section
-    }
+            if(button.classList.contains('submit')){ // If Button is the submit just update the icon
 
+                 // Update Sections Icon
+                 updateIcon(section);
+
+            }else if(validate(section)){ // Run vailadtion an check if its passed 
+
+                // Update Sections Icon
+                updateIcon(section);
+
+                // Move to next section
+                moveToNextSection();
+            }
+
+        }
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Seclect all sections
-const formSections = document.querySelectorAll('.stepperForm__section');
-
-// console.log(formSections);
-
-// // Loog through all sections and find the active one
-// formSections.forEach(formSection => {
-//     if(formSection.classList.contains('active')){
-//         console.log(formSection);
-//     }
-// });
-
-
-
-

@@ -23,3 +23,13 @@
 .input-pass{
     border: 1px solid green;
 }
+
+
+
+.active .stepperForm__sectionInputs{
+    display: inline;    
+}
+
+.inactive .stepperForm__sectionInputs{
+    display: none;
+}
