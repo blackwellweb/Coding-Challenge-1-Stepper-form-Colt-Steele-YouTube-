@@ -79,15 +79,20 @@ const moveToNextSection = () => {
 
     // loop trough all sections
     formSections.forEach(formSection => {
-    
+
         // Remove active class
         formSection.classList.remove('active');
 
         // Add inactive class
         formSection.classList.add('inactive');
 
-        // Add one to counter
-        counter ++;
+        // Add one to counter but only if less than the lenght of the about of form Sections (this is just in case we and more form sections in future)
+        if( counter < formSections.length){
+            counter ++;
+        }
+        
+        
+
 
         // This will give use are new current section
         if(counter === currentSection){
@@ -97,7 +102,6 @@ const moveToNextSection = () => {
 
     });
 };
-
 
 
 /* Continue Buttons Event listeners --------------------------------*/
@@ -131,6 +135,60 @@ const continueButtons = document.querySelectorAll('.continue-btn').forEach(butto
                 moveToNextSection();
             }
 
+        }
+    });
+});
+
+
+/* Go back to last Section Function---------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+const goBackToLastSection = () => {
+
+    let counter = 0;
+    currentSection --;
+
+     // loop trough all sections
+     formSections.forEach(formSection => {
+
+        console.log(currentSection);
+
+        // Remove active class
+        formSection.classList.remove('active');
+
+        // Add inactive class
+        formSection.classList.add('inactive');
+
+        // Add one to counter but only if less than the lenght of the about of form Sections (this is just in case we and more form sections in future)
+        if( counter < formSections.length){
+            counter ++;
+        }
+
+        // This will give use are new current section
+           if(counter === currentSection){
+            formSection.classList.add('active');
+            formSection.classList.remove('inactive');
+        }
+    });
+};
+
+
+
+/* Go Back Buttons Event listeners ---------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+const backButtons = document.querySelectorAll('.back-btn').forEach(button => {
+    // Add an event listener to all back-btn
+    button.addEventListener('click', () => {
+        // Get Parent Div
+        const section = button.parentElement.parentElement;
+
+        // If the parentElement has the active class and it not the last section
+        if(section.classList.contains('active')){
+            goBackToLastSection();
         }
     });
 });
