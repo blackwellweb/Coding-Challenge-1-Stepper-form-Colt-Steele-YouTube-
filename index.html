@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <title>Coding Challenge #1 Stepper form</title>
 </head>
+
 <body>
-    
+    <header class="stepperTitle">
+        <h1 class="stepperTitle__title">
+            <span class="stepperTitle__main">Stepper Form</span>
+            <span class="stepperTitle__sub">Create a multi-step form similar to the on the right.</span>
+        </h1>
+    </header>
+    <form class="stepperForm">
+        <section class="stepperForm__stepOne">
+            <h2 class="stepperForm__sectionTile"><span class="icon">1</span><span>Step 1</span></h2>
+            <label for="stepperForm__email">Your email</label>
+            <input class="stepperForm__email" type="text">
+            <button class="stepperForm__button" type="button">Continue</button>
+        </section>
+        <section class="stepperForm__stepTwo">
+            <h2 class="stepperForm__sectionTile"><span class="icon">2</span><span>Step 2</span></h2>
+            <label for="stepperForm__password">Your Password</label>
+            <input class="stepperForm__password" type="password">
+            <button class="stepperForm__button continue-btn" type="button">Continue</button>
+            <button class="stepperForm__button continue-back" type="button">Back</button>
+        </section>
+        <section class="stepperForm__stepThree">
+            <h2 class="stepperForm__sectionTile"><span class="icon">3</span><span>Step 3</span></h2>
+            <span>Finish!</span>
+            <button class="stepperForm__button finish!-btn" type="button">Submit</button>
+        </section>
+    </form>
+
     <script src="app.js"></script>
 </body>
+
 </html>
