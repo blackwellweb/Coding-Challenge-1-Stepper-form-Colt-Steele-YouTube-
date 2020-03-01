@@ -2,3 +2,24 @@
 /* body {
     background-color: aqua;
 } */
+
+
+/* Testing */
+
+.label-error{
+    color: red;
+}
+
+.label-pass{
+    color: green;
+    /* border-bottom: 1px green; */
+}
+
+
+.input-error{
+    border: 1px solid red;
+}
+
+.input-pass{
+    border: 1px solid green;
+}
