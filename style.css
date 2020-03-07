@@ -34,6 +34,7 @@ body{
     max-width: 114rem;
     margin: 0 auto;
     display: flex;
+    justify-content: space-around;
 }
 
 
@@ -74,6 +75,27 @@ body{
 /* Form ------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
+
+.stepperForm{
+    background-color: #fff;
+    border: solid .3rem #E3E0E2;
+    border-radius: .4rem;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .label-error{
