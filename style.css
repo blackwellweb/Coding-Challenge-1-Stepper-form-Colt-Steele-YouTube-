@@ -109,20 +109,33 @@ body{
     border-radius: 50%;
 }
 
-.stepperForm__section p{
-    padding: .8rem 0;
-}
-
 .stepperForm__section p, .stepperForm__sectionInputs{
     padding-left: 3.6rem;
 }
 
 
 .stepperForm__label{
-    display: block;
+    padding: .8rem 0;
 }
 
 
+.stepperForm__label, .stepperForm__input{
+    display: block;
+}
+
+.stepperForm__button{
+    border: none;
+    padding: .8rem 2rem;
+    margin: 3.2rem 0;
+    text-decoration: none;
+    background-color: #208AF3;
+    color: #ffffff; 
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
 
 
 
