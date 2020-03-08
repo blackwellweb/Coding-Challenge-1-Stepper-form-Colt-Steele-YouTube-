@@ -98,30 +98,62 @@ body{
 .stepperForm__sectionTile{
     color: #555355;
     padding: .8rem 0;
+    display: flex;
+    align-items: center;
 }
 
 
 .stepperForm__sectionTile .icon{
-    padding: .4rem 1.1rem;
-    margin-right: .4rem;
+    display: flex;
+    height: 3.2rem;
+    width: 3.2rem;
+    margin-right: 1.6rem;
     color: #fff;
-    background-color: #208AF3;
+    background-color: #AAA8AA;
     border-radius: 50%;
+    justify-content: center;
+    align-items: center;
 }
 
+
+
+.active .icon, .stepperForm__sectionTile .icon-complete{
+    background-color: #208AF3; 
+}
+
+
+
+.stepperForm__sectionTile .icon .fas{
+    font-size: 1.4rem;
+}
+
+
+
 .stepperForm__section p, .stepperForm__sectionInputs{
-    padding-left: 3.6rem;
+    padding-left: 4.8rem;
 }
 
 
 .stepperForm__label{
     padding: .8rem 0;
+    color: #AAA8AA;
 }
 
 
 .stepperForm__label, .stepperForm__input{
     display: block;
 }
+
+.stepperForm__input, .stepperForm__input:active{
+    border: 0;
+    border-bottom: solid .2rem #E3E0E2;
+    width: 100%;
+    padding: .8rem .4rem;
+}
+
+
+
+
 
 .stepperForm__button{
     border: none;
@@ -130,6 +162,7 @@ body{
     text-decoration: none;
     background-color: #208AF3;
     color: #ffffff; 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
     letter-spacing: .1rem;
     border-radius: 4px;
@@ -145,21 +178,20 @@ body{
 
 
 .label-error{
-    color: red;
+    color: #D43633;
 }
 
 .label-pass{
-    color: green;
-    /* border-bottom: 1px green; */
+    color: #53998E;
 }
 
 
 .input-error{
-    border: 1px solid red;
+     border-bottom: solid .2rem #D43633;
 }
 
 .input-pass{
-    border: 1px solid green;
+    border-bottom: solid .2rem #53998E;
 }
 
 
