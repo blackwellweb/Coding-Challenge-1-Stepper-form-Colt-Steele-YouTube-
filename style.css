@@ -25,6 +25,9 @@ body{
     height: 100vh;
     font-family: 'Work Sans', sans-serif;
     font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Container ------------------------------------------------------------*/
@@ -38,6 +41,14 @@ body{
     justify-content: space-around;
 }
 
+@media only screen and (max-width: 112rem) {
+    .container{
+        flex-direction: column;
+        margin: 2.4rem;
+    }
+}
+
+
 
 
 /* Header ------------------------------------------------------------*/
@@ -45,7 +56,15 @@ body{
 /*------------------------------------------------------------------*/
 
 .stepperTitle{
-    margin: 0 4.2rem;
+    margin-right: 10rem;
+    align-self: flex-end;
+}
+
+@media only screen and (max-width: 112rem) {
+    .stepperTitle{
+        margin: 2.4rem 0;
+        align-self: baseline;
+    }
 }
 
 
@@ -81,19 +100,35 @@ body{
     background-color: #fff;
     border: solid .3rem #E3E0E2;
     border-radius: .4rem;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px .4rem .4rem rgba(0, 0, 0, 0.25);
     padding: 2rem;
+    height: 54rem;
+    width: 52rem;
 }
 
-/* .stepperForm{
+@media only screen and (max-width: 112rem) {
+    .stepperForm{
+        height: 100%;
+        width: 100%;
+    }
+}
 
-} */
 
 
 .stepperForm__section{
     margin: 2rem;
-    width: 500px;
+    position: relative;
 }
+
+.stepperForm__line{
+    position: absolute;
+    top: 4.6rem;
+    left: 1.5rem;
+    width: .2rem;
+    background-color: #E3E0E2;
+    height: 50%;
+}
+
 
 .stepperForm__sectionTile{
     color: #555355;
@@ -133,6 +168,9 @@ body{
     padding-left: 4.8rem;
 }
 
+.stepperForm__sectionInputs span{
+    display: block;
+}
 
 .stepperForm__label{
     padding: .8rem 0;
@@ -160,20 +198,30 @@ body{
     padding: .8rem 2rem;
     margin: 3.2rem 0;
     text-decoration: none;
-    background-color: #208AF3;
-    color: #ffffff; 
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
-    letter-spacing: .1rem;
     border-radius: 4px;
     font-weight: 700;
     cursor: pointer;
 }
 
+.continue-btn{
+    background-color: #208AF3;
+    color: #ffffff; 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.back-btn{
+    text-decoration: none;
+    background-color: unset;
+    color: #555355;
+}
 
 
 
-
+/* Class added by JS -----------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
 
 
 
@@ -197,9 +245,32 @@ body{
 
 
 .active .stepperForm__sectionInputs{
-    display: block;    
+    display: block;   
+    animation: open .2s ease-out; 
+    transform-origin:  top;
 }
 
 .inactive .stepperForm__sectionInputs{
     display: none;
+}
+
+
+
+/* Animations  -----------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+@keyframes open{
+    0%{
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    
+
+    100%{
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
