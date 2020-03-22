@@ -5,17 +5,17 @@
 
 *, 
 *::after,
-*::before{
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
-body{
+body {
     box-sizing: border-box;
     background-image: url(./images/Stepper\ From\ background.svg);
     background-size: cover;
@@ -34,14 +34,14 @@ body{
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
-.container{
+.container {
     max-width: 114rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
-@media only screen and (max-width: 112rem) {
+@media only screen and (max-width: 1120px) {
     .container{
         flex-direction: column;
         margin: 2.4rem;
@@ -55,12 +55,12 @@ body{
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
-.stepperTitle{
+.stepperTitle {
     margin-right: 10rem;
     align-self: flex-end;
 }
 
-@media only screen and (max-width: 112rem) {
+@media only screen and (max-width: 1120px) {
     .stepperTitle{
         margin: 2.4rem 0;
         align-self: baseline;
@@ -68,12 +68,12 @@ body{
 }
 
 
-.stepperTitle__title{
+.stepperTitle__title {
     max-width: 42rem;
 }
 
 
-.stepperTitle__main{
+.stepperTitle__main {
     display: block;
     font-size: 6rem;
     font-weight: 600;
@@ -84,7 +84,7 @@ body{
 }
 
 
-.stepperTitle__sub{
+.stepperTitle__sub {
     display: block;
     font-size: 3.4rem;
     font-weight: 500;
@@ -96,7 +96,7 @@ body{
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
-.stepperForm{
+.stepperForm {
     background-color: #fff;
     border: solid .3rem #E3E0E2;
     border-radius: .4rem;
@@ -106,7 +106,7 @@ body{
     width: 52rem;
 }
 
-@media only screen and (max-width: 112rem) {
+@media only screen and (max-width: 1120px) {
     .stepperForm{
         height: 100%;
         width: 100%;
@@ -115,12 +115,12 @@ body{
 
 
 
-.stepperForm__section{
+.stepperForm__section {
     margin: 2rem;
     position: relative;
 }
 
-.stepperForm__line{
+.stepperForm__line {
     position: absolute;
     top: 4.6rem;
     left: 1.5rem;
@@ -130,7 +130,7 @@ body{
 }
 
 
-.stepperForm__sectionTile{
+.stepperForm__sectionTile {
     color: #555355;
     padding: .8rem 0;
     display: flex;
@@ -138,7 +138,7 @@ body{
 }
 
 
-.stepperForm__sectionTile .icon{
+.stepperForm__sectionTile .icon {
     display: flex;
     height: 3.2rem;
     width: 3.2rem;
@@ -152,37 +152,46 @@ body{
 
 
 
-.active .icon, .stepperForm__sectionTile .icon-complete{
+.active .icon, .stepperForm__sectionTile .icon-complete {
     background-color: #208AF3; 
 }
 
 
 
-.stepperForm__sectionTile .icon .fas{
+.stepperForm__sectionTile .icon .fas {
     font-size: 1.4rem;
 }
 
 
 
-.stepperForm__section p, .stepperForm__sectionInputs{
+.stepperForm__section p, .stepperForm__sectionInputs {
     padding-left: 4.8rem;
 }
 
-.stepperForm__sectionInputs span{
+.stepperForm__sectionInputs span {
     display: block;
 }
 
-.stepperForm__label{
+.stepperForm__label {
     padding: .8rem 0;
     color: #AAA8AA;
 }
 
 
-.stepperForm__label, .stepperForm__input{
-    display: block;
+.stepperForm__sectionInputs--show {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
 }
 
-.stepperForm__input, .stepperForm__input:active{
+.stepperForm__sectionInputs--hide {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+
+.stepperForm__input, .stepperForm__input:active {
     border: 0;
     border-bottom: solid .2rem #E3E0E2;
     width: 100%;
@@ -191,9 +200,20 @@ body{
 
 
 
+.stepperForm__input:focus {
+    outline: none;
+}
 
 
-.stepperForm__button{
+.stepperForm__input:focus:invalid {
+    border-bottom: 3px solid red; 
+}
+
+
+
+
+
+.stepperForm__button {
     border: none;
     padding: .8rem 2rem;
     margin: 3.2rem 0;
@@ -204,14 +224,14 @@ body{
     cursor: pointer;
 }
 
-.continue-btn{
+.continue-btn, .submit-btn {
     background-color: #208AF3;
     color: #ffffff; 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 
-.back-btn{
+.back-btn {
     text-decoration: none;
     background-color: unset;
     color: #555355;
@@ -224,53 +244,3 @@ body{
 /*------------------------------------------------------------------*/
 
 
-
-.label-error{
-    color: #D43633;
-}
-
-.label-pass{
-    color: #53998E;
-}
-
-
-.input-error{
-     border-bottom: solid .2rem #D43633;
-}
-
-.input-pass{
-    border-bottom: solid .2rem #53998E;
-}
-
-
-
-.active .stepperForm__sectionInputs{
-    display: block;   
-    animation: open .2s ease-out; 
-    transform-origin:  top;
-}
-
-.inactive .stepperForm__sectionInputs{
-    display: none;
-}
-
-
-
-/* Animations  -----------------------------------------------------*/
-/*------------------------------------------------------------------*/
-/*------------------------------------------------------------------*/
-
-
-@keyframes open{
-    0%{
-        opacity: 0;
-        transform: scaleY(0);
-    }
-
-    
-
-    100%{
-        opacity: 1;
-        transform: scaleY(1);
-    }
-}

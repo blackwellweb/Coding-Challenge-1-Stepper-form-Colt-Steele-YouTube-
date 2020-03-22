@@ -19,31 +19,31 @@
             </h1>
         </header>
         <form class="stepperForm">
-            <section class="stepperForm__section stepOne active">
+            <section class="stepperForm__section">
                 <div class="stepperForm__line"></div>
                 <h2 class="stepperForm__sectionTile"><span class="icon">1</span><span>Step 1</span></h2>
                 <p>There's labels too</p>
-                <div class="stepperForm__sectionInputs">
+                <div class="stepperForm__sectionInputs stepperForm__sectionInputs--show">
                     <label class="stepperForm__label" for="email">Your email</label>
-                    <input class="stepperForm__input email" type="text">
+                    <input class="stepperForm__input" type="text" required>
                     <button class="stepperForm__button continue-btn" type="button">Continue</button>
                 </div>
             </section>
-            <section class="stepperForm__section stepTwo inactive">
+            <section class="stepperForm__section">
                 <div class="stepperForm__line"></div>
                 <h2 class="stepperForm__sectionTile"><span class="icon">2</span><span>Step 2</span></h2>
-                <div class="stepperForm__sectionInputs">
+                <div class="stepperForm__sectionInputs stepperForm__sectionInputs--hide">
                     <label class="stepperForm__label" for="password">Your Password</label>
-                    <input class="stepperForm__input password" type="password">
+                    <input class="stepperForm__input" type="password" required>
                     <button class="stepperForm__button continue-btn" type="button">Continue</button>
                     <button class="stepperForm__button back-btn" type="button">Back</button>
                 </div>
             </section>
-            <section class="stepperForm__section stepThree inactive">
+            <section class="stepperForm__section stepThree">
                 <h2 class="stepperForm__sectionTile"><span class="icon">3</span><span>Step 3</span></h2>
-                <div class="stepperForm__sectionInputs">
+                <div class="stepperForm__sectionInputs stepperForm__sectionInputs--hide">
                     <span>Finish!</span>
-                    <button class="stepperForm__button continue-btn submit" type="button">Submit</button>
+                    <button class="stepperForm__button submit-btn" type="button">Submit</button>
                 </div>
             </section>
         </form>
