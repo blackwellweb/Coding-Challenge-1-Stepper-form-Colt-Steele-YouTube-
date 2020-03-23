@@ -244,3 +244,11 @@ body {
 /*------------------------------------------------------------------*/
 
 
+.validation-passed {
+    background-color: #208AF3 !important;
+    color: #ffffff; 
+}
+
+.validation-error {
+    border-bottom: 3px solid red; 
+}

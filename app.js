@@ -1,45 +1,17 @@
 
-/* Validate  -------------------------------------------------------*/
-/*------------------------------------------------------------------*/
-/*------------------------------------------------------------------*/
-//  const validate = (element) => {
-
-//     // Get Icon
-//     const icon = element.parentElement.parentElement.querySelector('.icon');
-
-//     // If element is not a submit run valibation
-//     if(!element.classList.contains('submit-btn')){
-
-//          // Get input value
-//         const input = element.parentElement.querySelector('.stepperForm__input');
-        
-//         // Check if input has been filled in by the user
-//         if (input.value.trim() === ""){
-//             input.classList.add('validation-error');
-//             return false;
-//         }else{
-//             input.classList.remove('validation-error');
-//             icon.innerHTML = '<i class="fas fa-check"></i>';
-//             return true;
-//         }
-//     }
-//  };
-
-
-
-/* Go Back to last section  ----------------------------------------*/
+/* Change Section  -------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 // This function hides or shows a section depending on whether a continue or back button has been clicked 
 
-const changeSection = (buttonThatWasClicked) => {
+const changeSection = (button) => {
 
 
     // Get the button's (the button passed in) Parent
-    const buttonsParent = buttonThatWasClicked.parentElement;
+    const buttonsParent = button.parentElement;
 
     // Get type for button
-    const typeOfButton = buttonThatWasClicked.classList;
+    const typeOfButton = button.classList;
 
     // Get all the formSections
     const formSections = document.querySelectorAll('.stepperForm__sectionInputs');
@@ -72,6 +44,48 @@ const changeSection = (buttonThatWasClicked) => {
 
 
 
+
+/* Validate  -------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+const validate = (buttonThatWasClicked) => {
+
+     // Get Icon
+    const icon = buttonThatWasClicked.parentElement.parentElement.querySelector('.icon');
+
+    // Check the type of Button
+    if(buttonThatWasClicked.classList.contains('continue-btn')){
+
+        // Get input value
+        const input = buttonThatWasClicked.parentElement.querySelector('.stepperForm__input');
+        
+        // Check if input is empty 
+        if(input.value.trim() === ""){
+            input.classList.add('validation-error');
+            icon.classList.remove('validation-passed')
+        }else {
+
+            // If not empty change remove error and change icon to a tick
+            input.classList.remove('validation-error');
+            icon.classList.add('validation-passed')
+            icon.innerHTML = '<i class="fas fa-check"></i>';
+
+            // Go to next section
+            changeSection(buttonThatWasClicked);
+        }
+      
+    } else {
+
+        // If not a continue-btn, the button will be a submit or back, so no need to run Validation
+        changeSection(buttonThatWasClicked)
+    }
+
+};
+
+
+
 /* Add Event Listeners to all submit buttons  ----------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
@@ -83,7 +97,7 @@ const formButtons = document.querySelectorAll('.stepperForm__button ');
 formButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         // Run buttonClicked function and pass in the button that was clicked
-        //buttonClicked(button);
-        changeSection(button);
+        validate(button);
+        //changeSection(button);
     });
 });
